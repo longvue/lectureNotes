@@ -131,7 +131,7 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude? num <4 and >2 and  num is an int. => num = 3
 
 
 
@@ -140,7 +140,7 @@ Suppose we know "statement" is executed
 What rule are we seeing with an "or" statement,
 where we know that one of the statements is NOT true?
 
-
+if one side is not true, the other is 
 
 
 
@@ -158,7 +158,9 @@ It is raining.
 
 
 How to write with -> symbol?
-
+    p: it is raining
+    q: I will get wet
+    p -> q (p implies q)
 
 
 ////////////////////////////////////////////////////////
@@ -167,7 +169,7 @@ When we have an "if/then" statement,
 and we know that the "if" part is true?
 
     ...what can we always conclude?
-
+    the then part is true (modus ponens)
 
 
 
@@ -178,7 +180,7 @@ If I don't hear my alarm, then I will be late for class.
 I am late for class.
 
 --> What can I conclude?
-
+    nothing
 
 
 
@@ -189,7 +191,7 @@ I am late for class.
 If I don't hear my alarm, then I will be late for class.
 I hear my alarm.
 
---> What can I conclude? 
+--> What can I conclude? nothing
 
 
 
@@ -203,17 +205,17 @@ I hear my alarm.
 If I don't hear my alarm, then I will be late for class.
 I'm not late for class.
 
---> What can I conclude?
+--> What can I conclude? I did hear my alarm
 
 
-
+Contrapositive
 
 IF I don't hear my alarm THEN I will be late for class.
 
 is equivalent to:
+if i am not late for class, then i did hear my alarm
 
-
-
+p->q is equivalent to !q->!p
 
 
 if (condition) {
@@ -221,6 +223,8 @@ if (condition) {
 }
 
 --> what if we know statement is NOT executed? 
+
+condition was false
 
 
 
@@ -241,7 +245,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. What do we know?
 
-
+nothing, y could be 17 before
 
 
 /////////////////////////////////////////////////////////
@@ -254,7 +258,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. Can we conclude anything now?
 
-
+num < 4 || x >= 10 was true
 
 
 
@@ -267,6 +271,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is NOT 17 here. What do we know?
 
+condition is false
 
 ///////////////////////////////////////////////////////
 
@@ -291,8 +296,8 @@ Knights ALWAYS tell the truth, and knaves ALWAYS lie.
 
 Who can say, "I'm a knave"? 
 
-Can a knight?
-Can a knave?
+Can a knight? would be a lie
+Can a knave? would be the truth
 
 
 
@@ -304,11 +309,13 @@ Eve says, "I am a knave or Fred is a knight."
 
 
 
-What are Eve and Fred? 
+What are Eve and Fred? both knights
+
+suppose eve is a knight -> for her statement to be true fred has to be a knight
+suppose eve is a knave -> eve cannot be a knave
 
 
-
-(what does the "or" mean?) 
+(what does the "or" mean?) inclusive
 
 
 
@@ -323,16 +330,23 @@ You see two different inhabitants, Ava and Bob.
 Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
+bob rewrite: "ava and i are knights"
 
 
 What are Ava and Bob?
+
+suppose ava is a knight: -> bob must be a knave
+    bobs starement is correctly false
+
+suppose ava is a knave: -> bob must be a knight, however bob cannot be telling the truth then
+
 
 
 
 
 What does "neither" mean?
-    When is Bob's statement true? 
-    When is Bob's statement false? 
+    When is Bob's statement true? both knights
+    When is Bob's statement false? one or both is knave
 
 
 
