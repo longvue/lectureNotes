@@ -22,11 +22,13 @@ Associativity.
 
 Meaning?
 
+(p && q) && r == p && (q && r)
 
 Which operators are associative? Which are not?
 
 How to prove each case?
 
+find one truth assignment where output is 
 
 ////////////////////////////////
 
@@ -34,10 +36,18 @@ Commutativity.
 
 Meaning?
 
+p && q == q && p
+
 Which operators are commutative? Which are not?
+
+are: && ||
+not: implies
 
 How to prove each case?
 
+p -> q vs q -> p
+
+p = T, q = F
 
 ////////////////////////////////
 ∧ ∨ ¬ →
@@ -61,7 +71,12 @@ SAT
 
 straightforward approach to checking all possibilities:
 
+logical statement, variables p, q, etc.
 
+generate all truth assignments, try them all
+n variables, 2^n truth assignments
+
+this is an exponential time algorithm
 
 
 - Aside: P and NP problems
@@ -72,7 +87,7 @@ can we solve a problem in polynomial time?
 
 can we check a solution to a problem in polynomial time?
 
-
+not be exponential time, it would be polynomial time
 
 ////////////////////////
 
@@ -94,8 +109,11 @@ An argument is of the form:
 
 --> When is an argument considered valid?
 
+implies statement, only false when T->F
 
-
+valid: anytime all premises are true, the conclusion is true
+invalid: can find a time when all premises true, 
+        but the conclusion is false
 
 ///////////////////////////////////////
 
@@ -118,15 +136,23 @@ I want to prove:
 
 Propositional atoms:
 
-
+p: I am in the CS dept
+q: I am in the ECE dept
+r: I can log in to the CS lab computers
 
 Translations:
 
+p or q
+!q
+p -> r
 
+conclusion:
+r && p
 
 --> How to prove with a truth table?
 
-
+find truth assignments where all three premis are true,
+make sure the conclusion is true for those truth assignments
 
 
 ////////////////////////////////
@@ -138,6 +164,7 @@ Format for a truth table proof:
              (mark * for each premise/conclusion)
 --------------------------------------------------------------
 variables # (premise1, premise2, ..., premiseN) ⊢ conclusion
+                                                |- to write (turnstyle)
 ---------------------------------------------------------------
 ... fill in like a truth table for each premise and conclusion
 ---------------------------------------------------------------
@@ -185,14 +212,19 @@ Proposed conclusion:
 
 1) Translate to propositional logic
 
+p: it is sunny
+q: I wear sunscrean
 
+Premises: p -> q, q
+Conclusion: p
 
 
 
 2) How can we show it is invalid?
 
+p = F, q = T
 
-
+Makes both premises true and conclusion false
 
 ////////////////////////////////
 
@@ -209,13 +241,17 @@ Showing arguments are invalid in Logika
 ////////////////////////////
 
 Does it matter if the conclusion is true when 
-    the premises aren't?
+    the premises aren't? NO
 
 
 Does it matter if one premise is true when the other isn't?
+    NO, only care when all premises are true
+
 
 Does it matter if the conclusion is false when some 
     (but not all) of the premises are true?
+
+No, Dosn't matter, only care when every premis is true
 
 ////////////////////////////
 
