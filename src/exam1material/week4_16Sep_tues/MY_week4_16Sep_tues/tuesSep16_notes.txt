@@ -30,7 +30,8 @@ Proving two statements are equivalent with deduction?
 statement1
 statement2
 
-
+proof 1: statement1 |- statement2
+proof 2: statement2 |- statement1
 
 
 ////////////////////////////////
@@ -52,6 +53,9 @@ if (extraCredit == true || grade < 90) {
     }
 }
 
+if (extraCredit == true || (grade >= 80 && grade <90)){
+
+}
 
 --> how does the distributive law tell us we can rewrite 
     this?
@@ -86,7 +90,7 @@ b ( P → Q   )   by Justification,
 c ( Q       )   by ImplyE(b, a)
 
 __>:
-
+_ _ > : 
 ////////////////////////////////////////
 
 Example (imply1.sc):
@@ -127,31 +131,47 @@ See Canvas announcement for list of topics.
 How to prove two propositional logic statements are 
 equivalent?
 
-    Approach 1:
-
-    Approach 2:
-
+    Approach 1: truth tables (2)
+                    for each truth assignment, both statements have the same output
+    Approach 2: deduction (2)
+                    statement1 |- statement2
+                    statement2 |- statement1
 
 
 
 How to prove propositional logic statements are 
 NOT equivalent?
 
+        find one counter example 
+            truth assignment where output differ
 
 
+What is satisfiability?  
+            there exists at least 1 truth assignment that makes the statement output true
 
-What is satisfiability? 
+            Are satisfiable : contingent, tautology
+            not satisfiable : contradictory
+
+            prove satisfiability: find One truth assignment
+            prove not satisfiable: full truth table, show contradictory
 
 
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
-    valid: 
+    premises, conclusion
 
-    how prove valid?
+    valid: every time all premises are true then conclusion is also true
+
+    how prove valid? 
+        1) make a "combined" truth table, make sure every truth assignment that makes all premises true
+        also makes the conclusion true
+
+        2) deduction
 
     how prove invalid?
-
+        Find one truth assignment that makes all premises true but the conclusion false
+        
 
 /////////////////////////////////////////
 
